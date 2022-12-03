@@ -41,6 +41,7 @@ export default Marionette.CollectionView.extend({
         this.collection = new Backbone.Collection(models);
     },
     changeFocus(source, idxMod) {
+        source.el.blur();
         const filteredChildren = this.children.filter(child => child.choices);
         const newIdx = filteredChildren.indexOf(source) + idxMod;
         if (newIdx < 0) {
