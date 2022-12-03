@@ -44,7 +44,7 @@ export default Marionette.View.extend({
         'change input[type=date]': 'onDateChange'
     },
     childViewEvents: {
-        'add:scramble:letters': 'addScrambleLetters',
+        'clue:scramble:solved': 'clueScrambleSolved',
         'focus:final': 'focusFinal'
     },
     modelEvents: {
@@ -103,15 +103,20 @@ export default Marionette.View.extend({
     onDateChange(event) {
         this.promise = this.fetchData(event.currentTarget.value);
     },
-    addScrambleLetters(letters) {
+    clueScrambleSolved(letters) {
         const bigScramble = this.getChildView('bottom');
         bigScramble.addChoices(letters);
         letters.forEach(letter => {
             bigScramble.addClue(letter);
         });
+        const filteredChildren = this.getChildView('left').children
+            .filter(child => !child.getChildView('answer').el
+                .querySelector('.solved').classList.contains('icon-checkmark'));
+        if (filteredChildren.length === 0) {
+            this.revealFinal();
+        }
     },
     focusFinal() {
-        this.revealFinal();
         this.getChildView('bottom').getChildView('answer').children.find(child => child.choices).el.focus();
     },
     revealFinal() {

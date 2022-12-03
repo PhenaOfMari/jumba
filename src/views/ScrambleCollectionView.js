@@ -7,7 +7,7 @@ export default Marionette.CollectionView.extend({
         'change:focus': 'changeFocus'
     },
     childViewTriggers: {
-        'scramble:solved': 'add:scramble:letters'
+        'scramble:solved': 'clue:scramble:solved'
     },
     changeFocus(source, idxMod) {
         const filteredChildren = this.children
