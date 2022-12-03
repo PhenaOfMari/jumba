@@ -19,12 +19,12 @@ export default Marionette.CollectionView.extend({
         const models = clues.map(value => ({value}));
         this.collection = new Backbone.Collection(models);
     },
-    onDrop(data) {
+    onDrop(data, offsetX) {
         if (_.isEmpty(data)) {
             return;
         }
         const {id, model} = JSON.parse(data);
         this.trigger('remove:letter', id);
-        this.collection.add(model);
+        this.collection.add(model, {at: _.clamp(Math.floor((offsetX + 26) / 55), this.collection.length)});
     }
 });

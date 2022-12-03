@@ -16,6 +16,7 @@ export default Marionette.Behavior.extend({
         const {view} = this;
         const format = view.dropDataFormat ?? 'text/plain';
         const data = event.originalEvent.dataTransfer.getData(format);
-        view.onDrop(data);
+        const offsetX = event.target.offsetLeft - event.currentTarget.offsetLeft + event.offsetX;
+        view.onDrop(data, offsetX);
     }
 });
