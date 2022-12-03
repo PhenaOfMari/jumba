@@ -1,0 +1,57 @@
+body {
+    background-color: dodgerblue;
+    font-family: sans-serif;
+}
+
+.jumba-main {
+    align-items: center;
+}
+
+.plug {
+    bottom: 0;
+    color: black;
+    position: absolute;
+    margin: 5px;
+    right: 0;
+    text-decoration: none;
+}
+
+.loading {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    font-size: 4em;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.right {
+    align-items: flex-end;
+}
+
+.menu {
+    align-items: center;
+    font-size: 2em;
+}
+
+.menu-item {
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    margin: 5px;
+    width: 32px;
+}
+
+input[type="date"] {
+    background-color: #0e80ef;
+    border-color: #0e80ef;
+    border-radius: 5px;
+}
+
+img {
+    height: 400px;
+    margin: 0 0 40px 40px;
+}

@@ -1,0 +1,25 @@
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: icomoon, sans-serif;
+    line-height: 1em;
+}
+
+.icon-checkmark::before {
+    content: "\ea10";
+}
+
+.icon-eye::before {
+    content: "\e9ce";
+}
+
+.icon-github::before {
+    content: "\eab0";
+}
+
+.icon-spinner::before {
+    content: "\e97a";
+}
+
+.icon-undo::before {
+    content: "\e965";
+}
