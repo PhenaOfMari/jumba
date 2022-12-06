@@ -31,7 +31,7 @@ export default Marionette.CollectionView.extend({
         this.circledIndices = circledIndices;
         const models = tokens.flatMap((el, i) => {
             if (i % 2 === 1) {
-                return {text: el.replace(' ', '&nbsp;')};
+                return {text: el.replace(/\s+/g, '&nbsp;')};
             }
             return el.split('').map((value, j) => ({
                 circled: circledIndices.includes(j),
